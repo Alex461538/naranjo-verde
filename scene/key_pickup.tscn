@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7er0q3kkpq0b"]
+
+[ext_resource type="Script" uid="uid://cd43r7v38tf7h" path="res://scripts/key_pickup.gd" id="1_5bsas"]
+[ext_resource type="Texture2D" uid="uid://ci3ok6wiuag6e" path="res://assets/sprites/sprites.png" id="1_k4yq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4yq1"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bsas"]
+size = Vector2(8, 8)
+
+[node name="key_picffkup" type="RigidBody2D"]
+script = ExtResource("1_5bsas")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k4yq1")
+region_enabled = true
+region_rect = Rect2(112, 8, 8, 8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k4yq1")
+debug_color = Color(0.96905273, 0, 0.46698505, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5bsas")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
