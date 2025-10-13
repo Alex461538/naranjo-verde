@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn70aydnd3vuj"]
+
+[ext_resource type="PackedScene" uid="uid://cxit556xywp3r" path="res://scene/particles/sky_star_particles.tscn" id="1_bgmf3"]
+[ext_resource type="Texture2D" uid="uid://23125661t2ye" path="res://assets/sprites/logo.png" id="2_rl313"]
+[ext_resource type="Texture2D" uid="uid://dkrhrj71s1oat" path="res://assets/sprites/ichiyama.png" id="3_3q4nk"]
+[ext_resource type="Script" uid="uid://bxhsyftxg7jhl" path="res://scripts/stages/menu-ichiyama.gd" id="4_7ecu7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_462ap"]
+distance = -44.0
+
+[node name="title" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -84.0
+offset_top = -84.0
+offset_right = 85.0
+offset_bottom = 86.0
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="sky-star-particles" parent="." instance=ExtResource("1_bgmf3")]
+position = Vector2(2, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(5, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6, 151)
+shape = SubResource("WorldBoundaryShape2D_462ap")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -22)
+texture = ExtResource("2_rl313")
+
+[node name="Ichiyama" type="Sprite2D" parent="."]
+position = Vector2(2, 18)
+texture = ExtResource("3_3q4nk")
+script = ExtResource("4_7ecu7")
+scene_path = "uid://2yxqk8livouu"

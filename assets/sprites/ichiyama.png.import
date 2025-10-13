@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7acvkp6kyeln"
-path="res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"
+uid="uid://dkrhrj71s1oat"
+path="res://.godot/imported/ichiyama.png-0c70761c969b05e7b10390afca080c88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"]
+source_file="res://assets/sprites/ichiyama.png"
+dest_files=["res://.godot/imported/ichiyama.png-0c70761c969b05e7b10390afca080c88.ctex"]
 
 [params]
 

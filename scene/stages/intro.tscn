@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://2yxqk8livouu"]
+
+[ext_resource type="Script" uid="uid://b82jsk3hmsj1c" path="res://scripts/stages/intro.gd" id="1_pklsh"]
+[ext_resource type="Texture2D" uid="uid://dyuvvalq2hiw5" path="res://assets/sprites/pearl-pilar.png" id="1_w3uvh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pklsh"]
+distance = -44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sypnp"]
+atlas = ExtResource("1_w3uvh")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g8r3"]
+atlas = ExtResource("1_w3uvh")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_123pn"]
+atlas = ExtResource("1_w3uvh")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u7g2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sypnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g8r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_123pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_123pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g8r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sypnp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_pklsh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -84.0
+offset_top = -84.0
+offset_right = 85.0
+offset_bottom = 86.0
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-7, 179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_pklsh")
+
+[node name="pearl_pilar" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 28)
+sprite_frames = SubResource("SpriteFrames_3u7g2")
+autoplay = "default"
+frame_progress = 0.36437792

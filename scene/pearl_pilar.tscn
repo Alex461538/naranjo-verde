@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsy35s11qdp12"]
+
+[ext_resource type="Texture2D" uid="uid://dyuvvalq2hiw5" path="res://assets/sprites/pearl-pilar.png" id="1_45k0j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sypnp"]
+atlas = ExtResource("1_45k0j")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g8r3"]
+atlas = ExtResource("1_45k0j")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_123pn"]
+atlas = ExtResource("1_45k0j")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u7g2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sypnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g8r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_123pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_123pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g8r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sypnp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pearl_pilar" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_3u7g2")
+autoplay = "default"
+frame_progress = 0.36437792

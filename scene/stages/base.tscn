@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq1sadfdsuekv"]
+
+[ext_resource type="Script" uid="uid://dutt4vkchhws0" path="res://scripts/managers/game_manager.gd" id="1_h3apy"]
+[ext_resource type="PackedScene" uid="uid://crh1827kyc0qg" path="res://scene/player.tscn" id="4_qdiim"]
+
+[node name="base" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_h3apy")
+
+[node name="player" parent="." instance=ExtResource("4_qdiim")]
+position = Vector2(-1, 164)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

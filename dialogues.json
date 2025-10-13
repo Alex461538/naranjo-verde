@@ -1,0 +1,16 @@
+{
+	"!what" : {
+		"text" : {
+			"en": "[Waht?] You should not be reading this.",
+			"es": "[Waht?] No deberías leer esto.",
+			"hy": "[Waht?] Սա ներքին սխալ է."
+		}
+	},
+	"intro" : {
+		"text" : {
+			"en": "A power is awakening from the tower, strong as a general.",
+			"es": "Desde la torre una fuerza se despierta, con presencia de general.",
+			"hy": "Աշտարակից մի լույս է արթնանում, գնդապետի ուժ."
+		}
+	}
+}

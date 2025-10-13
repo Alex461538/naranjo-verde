@@ -1,0 +1,318 @@
+[gd_scene load_steps=18 format=3 uid="uid://dyy4b6nyj0u4q"]
+
+[ext_resource type="FontFile" uid="uid://4n8wd5newlah" path="res://assets/fonts/nj.ttf" id="1_3yo8w"]
+[ext_resource type="Shader" uid="uid://c6i50dfiqgou5" path="res://shaders/iris.gdshader" id="1_8enta"]
+[ext_resource type="Script" uid="uid://d021qamfs0cy0" path="res://scripts/managers/hud_manager.gd" id="1_l2y23"]
+[ext_resource type="Shader" uid="uid://c6e7yjj33k1pj" path="res://shaders/mosaic.gdshader" id="2_8dmid"]
+[ext_resource type="Shader" uid="uid://b3mf4ynnayr84" path="res://shaders/fade.gdshader" id="4_11yun"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11yun"]
+shader = ExtResource("2_8dmid")
+shader_parameter/time = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dmid"]
+shader = ExtResource("1_8enta")
+shader_parameter/time = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l2y23"]
+shader = ExtResource("4_11yun")
+shader_parameter/time = 0.0
+
+[sub_resource type="Animation" id="Animation_ivvt3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:IRIS_TIME")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:MOSAIC_TIME")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:FADE_TIME")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jnvjx"]
+resource_name = "fade_dark"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:MOSAIC_TIME")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:FADE_TIME")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_l2y23"]
+resource_name = "iris_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:IRIS_TIME")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7vdw3"]
+resource_name = "on_start"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivvt3"]
+_data = {
+&"RESET": SubResource("Animation_ivvt3"),
+&"fade_dark": SubResource("Animation_jnvjx"),
+&"iris_close": SubResource("Animation_l2y23"),
+&"on_start": SubResource("Animation_7vdw3")
+}
+
+[sub_resource type="Animation" id="Animation_g5lif"]
+resource_name = "open_box"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay/msg_box:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("overlay/msg_box/msg_box_label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1666666, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vhjep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay/msg_box:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("overlay/msg_box/msg_box_label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_owqtw"]
+resource_name = "close_box"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay/msg_box:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.23333332, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("overlay/msg_box/msg_box_label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owqtw"]
+_data = {
+&"RESET": SubResource("Animation_vhjep"),
+&"close_box": SubResource("Animation_owqtw"),
+&"open_box": SubResource("Animation_g5lif")
+}
+
+[node name="HudManager" type="CanvasLayer"]
+script = ExtResource("1_l2y23")
+MOSAIC_TIME = 0.0
+FADE_TIME = 0.0
+
+[node name="mosaic" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_11yun")
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 640.0
+grow_horizontal = 2
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="iris" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8dmid")
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 640.0
+grow_horizontal = 2
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="top" type="ColorRect" parent="overlay"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="bottom" type="ColorRect" parent="overlay"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="msg_box" type="ColorRect" parent="overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -224.0
+offset_right = 224.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(224, 128)
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="msg_box_label" type="Label" parent="overlay/msg_box"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 416.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.6862745, 0.88235295, 0.27450982, 1)
+theme_override_fonts/font = ExtResource("1_3yo8w")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 1
+visible_characters = 0
+visible_characters_behavior = 2
+visible_ratio = 0.0
+
+[node name="track_label" type="Label" parent="overlay"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_3yo8w")
+theme_override_font_sizes/font_size = 32
+text = "Ojo se pone de sapo :D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fade" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_l2y23")
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 640.0
+grow_horizontal = 2
+color = Color(0.003921569, 0, 0.08235294, 1)
+
+[node name="FadingAnimPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ivvt3")
+}
+
+[node name="DialogAnimPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_owqtw")
+}
+autoplay = "RESET"

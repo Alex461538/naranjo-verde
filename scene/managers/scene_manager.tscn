@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgvc0e5ne0aua"]
+
+[ext_resource type="Script" uid="uid://q7yd205780bk" path="res://scripts/managers/scene_manager.gd" id="1_yiwii"]
+[ext_resource type="PackedScene" uid="uid://bn70aydnd3vuj" path="res://scene/stages/title.tscn" id="2_3unwp"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_yiwii")
+
+[node name="title" parent="." instance=ExtResource("2_3unwp")]
+position = Vector2(-2, -1)

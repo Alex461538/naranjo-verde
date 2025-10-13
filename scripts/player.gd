@@ -1,5 +1,9 @@
 extends CharacterBody2D;
 
+@onready var game_manager: Node = %GameManager
+
+@onready var grab_spot: Node2D = $hand_area/grab_spot
+
 @export var dust_scene: PackedScene  # drag Dust.tscn here in the editor
 @onready var dust_timer: Timer = $DustTimer
 
@@ -25,7 +29,26 @@ var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity");
 
 var direction: float = 0;
 
+
+var nearby_item: GrabbableItem = null;
+
+func _on_hand_area_entered(area: Area2D) -> void:
+	if not nearby_item and area.is_in_group("grabbable_item") and area is GrabbableItem:
+		nearby_item = area;
+
+func _on_hand_area_exited(area: Area2D) -> void:
+	if area == nearby_item:
+		if nearby_item:
+			nearby_item._release()
+		nearby_item = null;
+
 func _physics_process(delta: float) -> void:
+	if nearby_item:
+		if _held_run_and_grab() and not nearby_item._is_grabbed():
+			nearby_item._grab(grab_spot)
+		elif not _held_run_and_grab() and nearby_item._is_grabbed():
+			nearby_item._release()
+	
 	direction = Input.get_axis("ui_left", "ui_right")
 	
 	_handle_gravity(delta);
@@ -43,7 +66,8 @@ func _handle_gravity(delta: float) -> void:
 	else:
 		g = 675
 	
-	velocity.y += g * delta;
+	if not is_on_floor():
+		velocity.y += g * delta;
 
 func _held_run_and_grab() -> bool:
 	return Input.is_action_pressed("run_and_grab");

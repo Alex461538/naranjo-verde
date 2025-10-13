@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxit556xywp3r"]
+
+[ext_resource type="Texture2D" uid="uid://cnln6vamnf71t" path="res://assets/sprites/star.png" id="1_jmom3"]
+
+[sub_resource type="Curve" id="Curve_jmom3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50247526, 0.5485252), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="sky-star-particles" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("1_jmom3")
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-50, 30)
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_jmom3")

@@ -10,15 +10,24 @@ config_version=5
 
 [application]
 
-config/name="naranjo"
-run/main_scene="uid://beirybc2eeeog"
+config/name="Naranjo"
+run/main_scene="uid://dq1sadfdsuekv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://scene/managers/scene_manager.tscn"
+HudManager="*res://scene/managers/hud_manager.tscn"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=640
+
+[global_group]
+
+grabbable_item="A special group for grabbable items areas"
 
 [input]
 

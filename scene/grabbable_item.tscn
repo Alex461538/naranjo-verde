@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckm28wd20lygf"]
+
+[ext_resource type="Script" uid="uid://spt8jnvwsi8k" path="res://scripts/grabbable_item.gd" id="1_1rkxb"]
+
+[node name="grabbable_item" type="Area2D" groups=["grabbable_item"]]
+script = ExtResource("1_1rkxb")
+
+[connection signal="body_entered" from="." to="." method="_on_grabbable_item_body_entered"]
